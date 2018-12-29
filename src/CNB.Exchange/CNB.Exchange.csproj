@@ -5,10 +5,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Martin Šigut</Authors>
     <Company>Algorim s.r.o.</Company>
-    <Description>CNB.cz daily Exchange Rates .NET Standard 2.0 Library</Description>
+    <Description>CNB.cz Daily Exchange Rates .NET Standard 2.0 Library</Description>
     <Copyright>Martin Šigut, Algorim</Copyright>
     <PackageTags>CNB Exchange Rates</PackageTags>
     <Version>1.0.0</Version>
+    <PackageProjectUrl>https://github.com/msigut/CNB.Exchange</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/msigut/CNB.Exchange</RepositoryUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/msigut/CNB.Exchange/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ## CNB.Exchange
 
-CNB.cz Daily Exchange Rates .NET Standard 2.0 Library (netstandard2.0). By [ČNB](https://www.cnb.cz) [documentation](https://www.cnb.cz/cs/faq/kurzy_devizoveho_trhu.html). Use public [plain-text API](https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt).
+CNB.cz Daily Exchange Rates .NET Standard 2.0 Library (netstandard2.0). By [ČNB](https://www.cnb.cz) [documentation](https://www.cnb.cz/cs/faq/kurzy_devizoveho_trhu.html). Uses public [plain-text API](https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt).
 
 Supports
 - Dependency injection by **IHttpClientFactory**
