@@ -1,3 +1,4 @@
+using System.Globalization;
 using CsvHelper.Configuration;
 
 namespace CNB.Exchange
@@ -46,7 +47,10 @@ namespace CNB.Exchange
 			Map(m => m.CurrencyName).Index(i++);
 			Map(m => m.Amount).Index(i++);
 			Map(m => m.Code).Index(i++);
-			Map(m => m.Rate).Index(i++);
+			Map(m => m.Rate)
+				.Index(i++)
+				.TypeConverterOption.CultureInfo(new CultureInfo("cs-CZ"))
+				.TypeConverterOption.NumberStyles(NumberStyles.AllowDecimalPoint);
 		}
 	}
 }
