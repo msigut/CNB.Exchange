@@ -47,11 +47,11 @@ namespace CNB.Exchange
 		{
 			var client = _clientFactory.CreateClient("cnb");
 
-			var urlDate = date.HasValue ? $"?date={date.Value.ToString("dd.MM.yyyy")}" : "";
-			var str = await client.GetStringAsync(Url + urlDate);
+			var url = $"{Url}?date={(date ?? DateTime.Today).ToString("dd.MM.yyyy")}";
+			var content = await client.GetStringAsync(url);
 
 			// remove first 1 line ('28.12.2018 #249')
-			var lines = str.Split(Environment.NewLine.ToCharArray()).Skip(1).ToArray();
+			var lines = content.Split(Environment.NewLine.ToCharArray()).Skip(1).ToArray();
 			var cleaned = string.Join(Environment.NewLine, lines);
 
 			ExchangeRate[] result = null;
