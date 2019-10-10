@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Martin Šigut</Authors>
     <Company>Algorim s.r.o.</Company>
     <Description>CNB.cz Daily Exchange Rates .NET Standard 2.0 Library</Description>
     <Copyright>Martin Šigut, Algorim</Copyright>
     <PackageTags>CNB Exchange Rates Czech</PackageTags>
-    <Version>1.0.4</Version>
+    <Version>1.1.0</Version>
     <PackageProjectUrl>https://github.com/msigut/CNB.Exchange</PackageProjectUrl>
     <RepositoryUrl>https://github.com/msigut/CNB.Exchange</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/msigut/CNB.Exchange/master/exchange.png</PackageIconUrl>
@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <None Include="..\..\LICENSE.md" Pack="true" PackagePath="" />
-    <PackageReference Include="CsvHelper" Version="12.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
