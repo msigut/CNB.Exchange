@@ -3,7 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CNB.Exchange.Generator
+namespace CNB.Generator
 {
 	class Program
 	{
@@ -51,9 +51,9 @@ namespace CNB.Exchange.Generator
 
 			#region C# code gragments
 
-			File.WriteAllText(@"..\..\..\..\CNB.Exchange\CurrencyCode.cs", @"using System;
+			File.WriteAllText(@"..\..\..\..\CNB\CurrencyCode.cs", @"using System;
 
-namespace CNB.Exchange
+namespace CNB
 {	
 	public enum CurrencyCode
 	{
@@ -62,9 +62,9 @@ namespace CNB.Exchange
 @"	}
 }");
 
-			File.WriteAllText(@"..\..\..\..\CNB.Exchange\CurrencyCodeName.cs", @"using System;
+			File.WriteAllText(@"..\..\..\..\CNB\CurrencyCodeName.cs", @"using System;
 
-namespace CNB.Exchange
+namespace CNB
 {	
 	public static class CurrencyCodeExtensions
 	{

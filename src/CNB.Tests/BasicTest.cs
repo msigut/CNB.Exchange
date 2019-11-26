@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace CNB.Exchange.Tests
+namespace CNB.Tests
 {
 	public class BasicTest: IClassFixture<TestFixture>
 	{
@@ -34,6 +34,17 @@ namespace CNB.Exchange.Tests
 			Assert.Contains(rates, x => x.Rate > 0);
 		}
 
+		[Fact]
+		public async Task TestBankCode()
+		{
+			var codes = await _cnb.BankCodeAll();
+
+			Assert.NotEmpty(codes);
+			Assert.All(codes, x => Assert.NotEmpty(x.Code));
+			Assert.All(codes, x => Assert.NotEmpty(x.Name));
+			Assert.Contains(codes, x => !string.IsNullOrEmpty(x.BIC));
+			Assert.Contains(codes, x => !string.IsNullOrEmpty(x.CERTIS));
+		}
 
 		[Fact]
 		public async Task TestExchangeRateCode()

@@ -1,6 +1,6 @@
 using System;
 
-namespace CNB.Exchange
+namespace CNB
 {	
 	public static class CurrencyCodeExtensions
 	{

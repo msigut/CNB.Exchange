@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CNB.Exchange.Tests
+namespace CNB.Tests
 {
 	public class TestFixture : IDisposable
 	{

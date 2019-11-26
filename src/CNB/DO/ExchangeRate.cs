@@ -1,7 +1,7 @@
 using System.Globalization;
 using CsvHelper.Configuration;
 
-namespace CNB.Exchange
+namespace CNB
 {
 	/// <summary>
 	/// CNB exchange rate

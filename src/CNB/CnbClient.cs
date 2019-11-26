@@ -5,15 +5,21 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CsvHelper;
+using CsvHelper.Configuration;
 
-namespace CNB.Exchange
+namespace CNB
 {
 	public class CnbClient
 	{
 		/// <summary>
 		/// CNB URL for Exchange rates
 		/// </summary>
-		public const string Url = "https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt";
+		public const string URL_EXCHANGE = "https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt";
+
+		/// <summary>
+		/// CNB URL for Bank codes
+		/// </summary>
+		public const string URL_BANK_CODES = "https://www.cnb.cz/cs/platebni-styk/.galleries/ucty_kody_bank/download/kody_bank_CR.csv";
 
 		#region DI
 
@@ -43,11 +49,11 @@ namespace CNB.Exchange
 		/// <summary>
 		/// get all exchange rates for date
 		/// </summary>
-		public async Task<IEnumerable<ExchangeRate>> ExchangeRateAll(DateTime? date = null)
+		public async Task<IReadOnlyCollection<ExchangeRate>> ExchangeRateAll(DateTime? date = null)
 		{
 			var client = _clientFactory.CreateClient("cnb");
 
-			var url = $"{Url}?date={(date ?? DateTime.Today).ToString("dd.MM.yyyy")}";
+			var url = $"{URL_EXCHANGE}?date={(date ?? DateTime.Today).ToString("dd.MM.yyyy")}";
 			var content = await client.GetStringAsync(url);
 
 			// remove first 1 line ('28.12.2018 #249')
@@ -71,6 +77,24 @@ namespace CNB.Exchange
 				}
 			}
 			return result;
+		}
+
+		/// <summary>
+		/// get all bank codes
+		/// </summary>
+		public async Task<IReadOnlyCollection<BankCode>> BankCodeAll()
+		{
+			var client = _clientFactory.CreateClient("cnb");
+
+			using (var stream = await client.GetStreamAsync($"{URL_BANK_CODES}"))
+			using (var reader = new StreamReader(stream))
+			using (var csv = new CsvReader(reader, new Configuration() { HasHeaderRecord = true }))
+			{
+				csv.Configuration.Delimiter = ";";
+				csv.Configuration.RegisterClassMap<BankCodeMapper>();
+
+				return csv.GetRecords<BankCode>().ToArray();
+			}
 		}
 	}
 }

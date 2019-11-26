@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CNB.Exchange\CNB.Exchange.csproj" />
+    <ProjectReference Include="..\CNB\CNB.csproj" />
   </ItemGroup>
 
 </Project>
