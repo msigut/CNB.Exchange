@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -11,12 +11,14 @@
     <Version>1.2.0</Version>
     <PackageProjectUrl>https://github.com/msigut/CNB.Exchange</PackageProjectUrl>
     <RepositoryUrl>https://github.com/msigut/CNB.Exchange</RepositoryUrl>
+    <PackageIcon>exchange.png</PackageIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/msigut/CNB.Exchange/master/exchange.png</PackageIconUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\LICENSE.md" Pack="true" PackagePath="" />
+    <None Include="..\..\exchange.png" Pack="true" PackagePath=""/>
     <PackageReference Include="CsvHelper" Version="12.1.2" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0" />
   </ItemGroup>
