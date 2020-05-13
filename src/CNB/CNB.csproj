@@ -8,7 +8,7 @@
     <Description>CNB.cz Daily Exchange + Bank codes Rates .NET Standard 2.0 Library</Description>
     <Copyright>Martin Šigut, Algorim</Copyright>
     <PackageTags>CNB Exchange Rates + Bank codes</PackageTags>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
     <PackageProjectUrl>https://github.com/msigut/CNB.Exchange</PackageProjectUrl>
     <RepositoryUrl>https://github.com/msigut/CNB.Exchange</RepositoryUrl>
     <PackageIcon>exchange.png</PackageIcon>
