@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
+using System.Globalization;
 
 namespace CNB
 {
@@ -62,7 +63,7 @@ namespace CNB
 
 			ExchangeRate[] result = null;
 			using (var reader = new StringReader(cleaned))
-			using (var csv = new CsvReader(reader))
+			using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 			{
 				csv.Configuration.Delimiter = "|";
 				csv.Configuration.RegisterClassMap<ExchangeRateMapper>();
@@ -88,7 +89,7 @@ namespace CNB
 
 			using (var stream = await client.GetStreamAsync($"{URL_BANK_CODES}"))
 			using (var reader = new StreamReader(stream))
-			using (var csv = new CsvReader(reader, new Configuration() { HasHeaderRecord = true }))
+			using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true }))
 			{
 				csv.Configuration.Delimiter = ";";
 				csv.Configuration.RegisterClassMap<BankCodeMapper>();
